@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="UpdateService">
+    <output-path>$PROJECT_DIR$/out/artifacts/UpdateService</output-path>
+    <root id="archive" name="UpdateService.jar">
+      <element id="module-output" name="UpdateService" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>
