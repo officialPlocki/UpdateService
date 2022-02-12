@@ -1,5 +1,6 @@
 package me.refluxo.updateservice;
 
+import me.refluxo.updateservice.util.ResourceActivationService;
 import me.refluxo.updateservice.util.ResourceManager;
 import me.refluxo.updateservice.util.WebService;
 import me.refluxo.updateservice.util.files.FileBuilder;
@@ -13,9 +14,11 @@ import java.util.List;
 public class UpdateService {
 
     private static ResourceManager rm;
+    private static ResourceActivationService ras;
 
     public static void main(String[] args) throws IOException {
         rm = new ResourceManager();
+        ras = new ResourceActivationService();
         FileBuilder builder = new FileBuilder("resources.yml");
         YamlConfiguration yml = builder.getYaml();
         if(!builder.getFile().exists()) {
@@ -36,6 +39,10 @@ public class UpdateService {
         WebService service = new WebService(26, "/download");
         service.start();
         Runtime.getRuntime().addShutdownHook(new Thread(service::stop));
+    }
+
+    public static ResourceActivationService getRAS() {
+        return ras;
     }
 
     public static ResourceManager getResourceManager() {
